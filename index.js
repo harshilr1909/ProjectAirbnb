@@ -21,18 +21,19 @@ async function main() {
     await mongoose.connect("mongodb://127.0.0.1:27017/abnb");
 };
 
+app.engine("ejs",ejsMate);
+
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-app.engine("ejs",ejsMate);
 
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
 
 app.get('/',(req,res) => {
-    res.send("App is working");
+    res.render('home.ejs');
 });
 
 app.get('/test',(req,res) => {
@@ -88,7 +89,7 @@ app.patch('/listings',async (req,res) => {
     let {title,location,country,description,price} = req.body;
 
     let indiData = await List.findOneAndUpdate({title:title},{$set:{
-     location:location,country:country,description:description,price:price}},{new:true,runValidators:true});
+	location:location,country:country,description:description,price:price}},{new:true,runValidators:true});
     console.log(indiData);
     res.redirect('/listings');
 });
@@ -135,9 +136,9 @@ app.get('/listings',(req,res) => {
     getListings().then((result) => {
 	res.render("listings.ejs",{result});
     }).catch((err) => {
-	console.log(err);
-	res.send("Some problem occured!");
-    });
+	    console.log(err);
+	    res.send("Some problem occured!");
+	});
 });
 
 

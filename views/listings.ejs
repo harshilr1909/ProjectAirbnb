@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Airbnb</title>
-	<link rel="stylesheet" href="/style.css">
-</head>
+<% layout('./const/boilerplate') -%>
 <body>
-	<h2>listings!!!</h2>
 	<% for(let data of result){ %>
 	    <div>
 	    <img src="<%= data.image.url %>" alt="img">
@@ -21,6 +13,4 @@
 	</form>
 	<hr><hr>
 	    <% } %>	
-	<form action="/listings/new"><button>add your place now!</button></form>
 </body>
-</html>
