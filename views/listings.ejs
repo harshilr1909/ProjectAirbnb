@@ -1,16 +1,17 @@
 <% layout('./const/boilerplate') -%>
 <body>
+	    <div class="card_container">
 	<% for(let data of result){ %>
-	    <div>
-	    <img src="<%= data.image.url %>" alt="img">
-	    <h3><%= data.title%></h3>
+	<a href="/listings/<%= data.id %>" class="card_click">
+	    <div class="cards">
+		 <img src="<%= data.image.url %>" alt="img" class="card_img">
+		<div class="card_text"> 
+		<p><b><%= data.title%></b><br>
+		&#8377;<%= data.price.toLocaleString("en-IN") %>/night<br>
+		<%= data.location %></p>
+		</div>
 	    </div>
-	    <a href="/listings/<%= data.id %>">tap here for  more info!</a>
-	    &nbsp;&nbsp;&nbsp;
-	    <a href="/listings/<%= data.id %>/edit">Update details</a>
-	<form action="/listings/<%= data.id %>?_method=DELETE" method="post">
-	    <button type="submit" >Delete</button>
-	</form>
-	<hr><hr>
+	</a>
 	    <% } %>	
+	    </div>
 </body>
