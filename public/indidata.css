@@ -1,0 +1,65 @@
+.card_indidata{
+    margin-top:1rem;
+
+}
+
+.card_img{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+.card_indidata .card_img img{
+    width:100%;
+    height:90vh;
+    border-radius:20px;
+    
+}
+
+#edit_btn{
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    color:black;
+    margin-top:5px;
+}
+
+
+.card_indidata .card_indidata_text{
+    display:block-flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.card_indidata #card_indidata_location{
+    font-size:10px;
+    font-weight:bold;
+}
+
+.card_indidata #card_indidata_description{
+    font-size:11px;
+}
+
+.indidata_btns{
+    display:flex;
+    align-items:start;
+    justify-content:start;
+}
+
+.indidata_btns .custom-btn-size{
+    height:2rem;
+    width:3rem;
+    font-size:10px;
+    padding:5px;
+    margin:5px;
+    border-radius:7px;
+}
+
+.indidata_btns .custom-btn-color{
+    background-color:#f70546;
+    border-color:#f70546;
+    font-weight:bold;
+}

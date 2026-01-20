@@ -1,15 +1,27 @@
 <% layout('/const/boilerplate') -%>
 <body>
-    <h2><%= result.title %></h2>
-    <ul>
-	<li><%= result.description %></li>
-	<li><%= result.price %></li>
-	<li><%= result.location %></li>
-	<li><%= result.country %></li>
-    </ul>
-    <a href="/listings/<%= result.id %>/edit">Edit this listing </a>
-    <form action"/listings/<%= result.id %>?_method=DELETE">
-    <button>Submit </button>
-    </form>
-
+    <div class="card_indidata">
+	<div class="card_img">
+	    <img src="<%= result.image.url %>" alt="image">
+	</div>
+	<div class="card_indidata_text">
+	    <h4 class="card_indidata_title"><%= result.title %> </h4>
+	    <h6 id="card_indidata_price">&#8377;<%= result.price.toLocaleString("en-EN") %>/night </h6>
+	    <p id="card_indidata_location">
+	    <%= result.location %><br>
+	    <%= result.country%><br>
+	</div>
+	    </p>
+	    <p id="card_indidata_description">
+	    <%= result.description %>
+	    </p>
+    </div>
+    <div class="indidata_btns">
+	<form action"/listings/<%= result.id %>?_method=DELETE" class="delete_btn" action="post">
+	    <button class="btn btn-dark custom-btn-size custom-btn-color">Delete</button>
+	</form>
+	<form action="/listings/<%= result.id %>/edit" class="edit_btn" method="get"> 
+	    <button class="btn btn-dark custom-btn-size custom-btn-color">Edit</button>
+	</form>
+    </div>
 </body>
