@@ -1,27 +1,40 @@
 <% layout('/const/boilerplate') -%> 
 <body>
-    <form action="/listings?_method=PATCH" method="post">
-	<div>
-	    <label for="title" class="form-label">Title:</label>
-	    <input type="text" name="title" id="title" value="<%= result.title%>"class="form-control">
+    <form action="/listings?_method=PATCH" method="post" class="needs-validation" novalidate>
+	<div class="row-md-6 offset-md-3">
+	    <div class="col-md-6">
+		<label for="title" class="form-label">Title</label><br>
+		<input type="text" name="title" id="title"placeholder="Use some creativity!"value="<%= editData.title%>" class="form-control" required >
+		<div class="valid-feedback">great Title!</div>
+	    </div>
+	    <div class="col-md-6">
+		<label for="price"class="form-label">price</label><br>
+		<input type="text" name="price" id="price" placeholder="69XX..X"class="form-control"              value="<%= editData.price.toLocaleString("en-EN")%>" required >
+		<div class="invalid-feedback">invalid price!please enter again</div>
+	    </div>
+	    <div class="row md-1">
+		<div class="col-md-3">
+		    <label for="location"class="form-label">Location</label><br>
+		    <input type="text" name="location" id="location" placeholder="Write the location"class="form-control"value="<%= editData.location%>" required>
+		    <div class="invalid-feedback">invalid location!please enter again</div>
+		</div>
+		<div class="col-md-3">
+		    <label for="country"class="form-label">country</label><br>
+		    <input type="text" name="country" id="country" class="form-control" placeholder="India/USA..etc"value="<%= editData.country%>"required>
+		    <div class="invalid-feedback">invalid country!please enter again</div>
+		</div>
+	    </div>
+	    <div class="col-md-6">
+		<label for="image"class="form-label">Enter Image URL</label><br>
+		<input type="text" name="images" id="images" class="form-control" placeholder="Http://______"value="<%= editData.image.url%>">
+	    </div>
+	    <div class="col-md-6">
+		<label for="description"class="form-label">Description</label><br>
+		<textarea name="description" id="description"class="form-control" required><%= editData.description%>
+		</textarea>
+		<div class="invalid-feedback">enter a  short description!</div>
+	    </div>
+	    <br>
+	    <button class="btn btn-dark custom-btn-size custom-btn-color">Post</button>
 	</div>
-	<div>
-	    <label for="price"class="form-label">price:</label>
-	    <input type="text" name="price" id="price" value="<%= result.price %>"class="form-control">
-	</div>
-	<div>
-	    <label for="location"class="form-label">location:</label>
-	    <input type="text" name="location" id="location" value="<%= result.location %>"class="form-control">
-	</div>
-	<div>
-	    <label for="country"class="form-label">country:</label>
-	    <input type="text" name="country" id="country" value="<%= result.country%>"class="form-control">
-	</div>
-	<div>
-	    <label for="description"class="form-label">description:</label>
-	    <textarea name="description" id="description"class="form-control"><%= result.description %></textarea>
-	</div>
-	<br><br>
-	<button class="btn btn-dark">Update</button>
     </form>
-

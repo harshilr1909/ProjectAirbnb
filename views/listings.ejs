@@ -1,7 +1,8 @@
 <% layout('./const/boilerplate') -%>
 <body>
+	<h3>All Listings </h3>
 	    <div class="card_container">
-	<% for(let data of result){ %>
+	<% for(let data of listings){ %>
 	<a href="/listings/<%= data.id %>" class="card_click">
 	    <div class="cards">
 		 <img src="<%= data.image.url %>" alt="img" class="card_img">

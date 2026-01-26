@@ -3,20 +3,6 @@
 
 }
 
-.card_img{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items:center;
-}
-
-.card_indidata .card_img img{
-    width:100%;
-    height:90vh;
-    border-radius:20px;
-    
-}
-
 #edit_btn{
     text-decoration:none;
     font-size:12px;
@@ -42,6 +28,10 @@
 .card_indidata #card_indidata_description{
     font-size:11px;
 }
+.img-fluid{
+    border-radius:10px;
+    width:60vh;
+}
 
 .indidata_btns{
     display:flex;
@@ -56,6 +46,10 @@
     padding:5px;
     margin:5px;
     border-radius:7px;
+}
+
+#card_indidata_description{
+    font-size:14px;
 }
 
 .indidata_btns .custom-btn-color{

@@ -8,6 +8,8 @@ const { log, timeEnd } = require('console');
 const List = require('./models/listing.js');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
+const CustomError = require('./utils/customError.js');
+const asyncWrap = require('./utils/asyncWrap.js');
 
 main().then((result) => {
     console.log("connection successful");
@@ -57,90 +59,68 @@ app.get('/listings/new',(req,res) => {
     res.render("addnewplace.ejs");
 });
 
-app.post('/listings',async (req,res) => {
+app.post('/listings',asyncWrap(async (req,res,next) => {
     let {title,price,location,country,description} = req.body;
-    let newPost = await List.insertOne({
+    if(!title || !price || !location || !country || !description){
+	throw new CustomError(400,"Send Valid Input");
+    }	
+    const newPost = new List({
 	title:title,
 	price:price,
 	location:location,
 	country:country,
 	description:description,
     });
-
-    newPost.save().then((result) => {
+    await newPost.save();
 	res.redirect('/listings');
-	console.log(result);
-    }).catch((err) => {
-	    console.log(err);
-	});
-});
+    })
+);
 
-app.get('/listings/:id/edit',async (req,res) => {
+app.get('/listings/:id/edit',asyncWrap(async (req,res) => {
     let {id} = req.params;
     const editData = await List.findById(id);
-    editData.save().then((result) => {
-	res.render("editform.ejs",{result});
-    }).catch((err) => {
-	    console.log(err);
-	});
-});
+    res.render("editform.ejs",editData);
+}));
 
-app.patch('/listings',async (req,res) => {
+app.patch('/listings',asyncWrap(async (req,res) => {
     let {title,location,country,description,price} = req.body;
 
-    let indiData = await List.findOneAndUpdate({title:title},{$set:{
+let indiData = await List.findOneAndUpdate({title:title},{$set:{
 	location:location,country:country,description:description,price:price}},{new:true,runValidators:true});
     console.log(indiData);
     res.redirect('/listings');
-});
+}));
 
-app.get('/listings/:id',(req,res) => {
+app.get('/listings/:id',asyncWrap(async(req,res,next) => {
     let {id} = req.params;
-    async function getIndiData() {
-	try{
-	    let indiData = await List.findById(id);
-	    return indiData;
-	}
-	catch(err) {
-	    console.log(err);
-	};
-    }
-    getIndiData().then((result) => {
-	res.render("indidata.ejs",{result});
-    }).catch((err) => {
-	    console.log(err);
-	});
-});
+    let indiData = await List.findById(id);
+    res.render("indidata.ejs",{indiData});
 
-app.delete('/listings/:id',(req,res) => {
+}));
+app.delete('/listings/:id',(req,res,next) => {
     let {id} = req.params;
     List.findByIdAndDelete(id).then((result) => {
 	console.log(result);
 	res.redirect('/listings');
     }).catch((err) => {
-	    console.log(err);
+	    next(err);
 	});
 });
 
 
 //index route
-app.get('/listings',(req,res) => {
-    async function getListings(){
-	try{
-	    const listings = await List.find({});
-	    return listings;
-	}catch(err){
-	    console.log(err);
-	}
-    }
-    getListings().then((result) => {
-	res.render("listings.ejs",{result});
-    }).catch((err) => {
-	    console.log(err);
-	    res.send("Some problem occured!");
-	});
-});
+app.get('/listings',asyncWrap(async(req,res,next) => {
+	const listings = await List.find({});
+	res.render("listings.ejs",{listings});
 
+}));
+
+
+
+app.use((err,req,res,next) => {
+    let {status=500,message="Something went wrong!"} = err;
+    res.status(status).send(message);
+});
 
 
 app.listen(port,() => {

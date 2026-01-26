@@ -1,26 +1,29 @@
 <% layout('/const/boilerplate') -%>
 <body>
-    <div class="card_indidata">
-	<div class="card_img">
-	    <img src="<%= result.image.url %>" alt="image">
+     
+    <div class="row-md-10 col-md-10 offset-md-4">
+	<div class="col-12 col-md-5">
+	    <img src="<%= indiData.image.url %>"class="img-fluid"alt="image">
 	</div>
 	<div class="card_indidata_text">
-	    <h4 class="card_indidata_title"><%= result.title %> </h4>
-	    <h6 id="card_indidata_price">&#8377;<%= result.price.toLocaleString("en-EN") %>/night </h6>
-	    <p id="card_indidata_location">
-	    <%= result.location %><br>
-	    <%= result.country%><br>
+	    <h5 class="card_indidata_title"><%= indiData.title %> </h5>
+	    <h6 id="card_indidata_price">&#8377;<%= indiData.price.toLocaleString("en-EN") %>/night </h6>
+	    <div class="row-md-1">
+	    <p>
+	    <%= indiData.location %><br>
+	    <%= indiData.country%><br>
+	    </p>
+	    </div>
 	</div>
-	    </p>
-	    <p id="card_indidata_description">
-	    <%= result.description %>
-	    </p>
     </div>
+	    <p id="card_indidata_description">
+	    <%= indiData.description %>
+	    </p>
     <div class="indidata_btns">
-	<form action"/listings/<%= result.id %>?_method=DELETE" class="delete_btn" action="post">
+	<form action"/listings/<%= indiData.id %>?_method=DELETE" class="delete_btn" action="post">
 	    <button class="btn btn-dark custom-btn-size custom-btn-color">Delete</button>
 	</form>
-	<form action="/listings/<%= result.id %>/edit" class="edit_btn" method="get"> 
+	<form action="/listings/<%= indiData.id %>/edit" class="edit_btn" method="get"> 
 	    <button class="btn btn-dark custom-btn-size custom-btn-color">Edit</button>
 	</form>
     </div>
