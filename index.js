@@ -10,9 +10,10 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const CustomError = require('./utils/customError.js');
 const asyncWrap = require('./utils/asyncWrap.js');
+const Review = require('./models/Review.js');
 
 main().then((result) => {
-    console.log("connection successful");
+    console.log("connection succesful");
 }).catch((err) => {
 	console.log(err)
     });
@@ -116,10 +117,15 @@ app.get('/listings',asyncWrap(async(req,res,next) => {
 }));
 
 
+app.all('/{*splat}',(req,res,next) => {
+    throw new CustomError(404,"Page Not Found");
+});
+
+
 
 app.use((err,req,res,next) => {
     let {status=500,message="Something went wrong!"} = err;
-    res.status(status).send(message);
+    res.render("error.ejs",{err});
 });
 
 

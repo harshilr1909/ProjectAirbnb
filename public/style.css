@@ -1,4 +1,11 @@
+body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    flex:1;
+}
 .container{  
+    padding:0px !important;
     max-width:100% !important;
     margin:0px !important;
 }
@@ -26,8 +33,8 @@
 }
 
 .cards{
-    width:14rem;
-    height:15rem;
+    width:11rem;
+    height:13rem;
     margin:5px;
     border-radius:12px;
 }
@@ -36,5 +43,151 @@
     border:2px solid gray;
 }
 .card_text{
-    font-size:9px;
+    font-size:12px;
 }
+.form-control:hover{
+    border:2px solid #059bf2 !important;
+    opacity:0.5;
+}
+footer{
+    padding:0px;
+    margin:0px;
+    margin-top:auto;
+    background-color:#ebebeb;
+    height:4rem;
+}
+.footer_info{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    height: 100%;
+
+    
+}
+
+.slogan{
+    font-size:0.7rem;
+    margin-right:0.5rem;
+}
+
+.footer_info_socials{
+    width:100%;
+    font-size:0.7rem;
+    margin-right:0.5rem;
+}
+
+.footer_info_socials i{
+    opacity:0.7;
+}
+.footer_info_socials i:hover{
+    opacity:1;
+}
+
+
+.anchor_links{
+    width:100%;
+}	
+
+.anchor_links a{
+    padding:0;
+    text-decoration:none;
+    color:black;
+    font-size:0.5rem;
+}
+
+.anchor_links a:hover{
+    text-decoration:underline ;
+}
+.card_indidata{
+    margin-top:1rem;
+
+}
+
+#edit_btn{
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    color:black;
+    margin-top:5px;
+}
+
+
+.card_indidata .card_indidata_text{
+    display:block-flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.card_indidata .card-indiData-location{
+    font-size:8px;
+    font-weight:bold;
+}
+
+.card_indidata #card_indidata_description{
+    font-size:11px;
+}
+.img-fluid{
+    border-radius:10px;
+    width:60vh;
+}
+
+.indidata_btns{
+    display:flex;
+    align-items:start;
+    justify-content:start;
+}
+
+.indidata_btns .custom-btn-size{
+    height:2rem;
+    width:3rem;
+    font-size:10px;
+    padding:5px;
+    margin:5px;
+    border-radius:7px;
+}
+
+#card_indidata_description{
+    font-size:14px;
+}
+
+.indidata_btns .custom-btn-color{
+    background-color:#f70546;
+    border-color:#f70546;
+    font-weight:bold;
+}
+.navbar {
+    position:sticky !important;
+    top:0px;
+    background-color:white;
+    height:2rem !important;
+    padding:0px !important;
+
+}
+
+.navbar ul {
+    padding:0;
+    margin:0;
+    display:flex;
+    align-items:center;
+    list-style-type: none;
+    font-size:10px;
+    }
+
+.navbar li {
+    padding:5px;
+    opacity:0.5;
+}
+
+.navbar li a {
+    text-decoration:none;
+    color:black;
+}
+
+.navbar li:hover {
+    opacity:1;
+}
+
