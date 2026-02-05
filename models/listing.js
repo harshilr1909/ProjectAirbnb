@@ -29,9 +29,9 @@ let listSchema = new mongoose.Schema({
 	type:String,
 	required:true,
     },
-    review:[{
+    reviews:[{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"Review"
+    ref:"Review",
     }],
 });
 

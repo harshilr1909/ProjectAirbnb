@@ -11,6 +11,8 @@ const ejsMate = require('ejs-mate');
 const CustomError = require('./utils/customError.js');
 const asyncWrap = require('./utils/asyncWrap.js');
 const Review = require('./models/Review.js');
+const {listingSchema} = require('./validateSchema/joiSchema.js');
+const {reviewSchema} = require('./validateSchema/joiSchema.js');
 
 main().then((result) => {
     console.log("connection succesful");
@@ -31,6 +33,25 @@ app.use(express.static(path.join(__dirname,"/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+const validateList = (req,res,next) => {
+    let {error,value} = listingSchema.validate(req.body);
+    if(error) {
+    let errMsg = error.details.map((el) => el.message ).join("");
+    throw new CustomError(400,errMsg);
+    }else{
+    next();
+    }
+};
+
+const validateReview =  (req,res,next) => {
+    let {error,value} = reviewSchema.validate(req.body);
+    if(error) {
+    let errMsg = error.details.mao((el) => el.message).join("");
+    throw new CustomError(400,errMsg);
+    }else{
+    next();
+    }
+};
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
@@ -60,11 +81,8 @@ app.get('/listings/new',(req,res) => {
     res.render("addnewplace.ejs");
 });
 
-app.post('/listings',asyncWrap(async (req,res,next) => {
-    let {title,price,location,country,description} = req.body;
-    if(!title || !price || !location || !country || !description){
-	throw new CustomError(400,"Send Valid Input");
-    }	
+
+app.post('/listings',validateList,asyncWrap(async (req,res,next) => {
     const newPost = new List({
 	title:title,
 	price:price,
@@ -76,6 +94,7 @@ app.post('/listings',asyncWrap(async (req,res,next) => {
 	res.redirect('/listings');
     })
 );
+
 
 app.get('/listings/:id/edit',asyncWrap(async (req,res) => {
     let {id} = req.params;
@@ -94,10 +113,11 @@ let indiData = await List.findOneAndUpdate({title:title},{$set:{
 
 app.get('/listings/:id',asyncWrap(async(req,res,next) => {
     let {id} = req.params;
-    let indiData = await List.findById(id);
+    let indiData = await List.findById(id).populate('reviews');
     res.render("indidata.ejs",{indiData});
 
 }));
+
 app.delete('/listings/:id',(req,res,next) => {
     let {id} = req.params;
     List.findByIdAndDelete(id).then((result) => {
@@ -114,6 +134,19 @@ app.get('/listings',asyncWrap(async(req,res,next) => {
 	const listings = await List.find({});
 	res.render("listings.ejs",{listings});
 
+}));
+
+app.post('/listings/:id/reviews',validateReview,asyncWrap(async (req,res) => {
+    let{id} = req.params;
+    let indiData = await List.findById(id);
+    let list = await indiData.populate();
+    let newReview = await Review.insertOne(req.body.review); 
+    console.log(newReview);
+    indiData.reviews.push(newReview);
+    await newReview.save();
+    await list.save();
+    console.log(indiData);
+    res.redirect(`/listings/${id}`);
 }));
 
 

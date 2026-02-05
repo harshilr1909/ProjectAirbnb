@@ -115,16 +115,7 @@ footer{
 
 
 .card_indidata .card_indidata_text{
-    display:block-flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items:center;
-}
-
-
-.card_indidata .card-indiData-location{
-    font-size:8px;
-    font-weight:bold;
+    font-size:12px;
 }
 
 .card_indidata #card_indidata_description{
@@ -174,11 +165,12 @@ footer{
     display:flex;
     align-items:center;
     list-style-type: none;
-    font-size:10px;
+    font-size:0.8rem;
     }
 
 .navbar li {
     padding:5px;
+    margin:2px;
     opacity:0.5;
 }
 
@@ -190,4 +182,9 @@ footer{
 .navbar li:hover {
     opacity:1;
 }
+.comments-card{
+    border:1px solid grey !important;
 
+}
+.card-body{
+}
