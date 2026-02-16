@@ -1,18 +1,18 @@
 <% layout('./const/boilerplate') -%>
 <body>
-	<h3>All Listings </h3>
-	<div class="card_container row-md-10 col-md-10>
+    <h3>ALL LISTINGS </h3>
+    <div class="card_container row-md-10">
 	<% for(let data of listings){ %>
 	<a href="/listings/<%= data.id %>" class="card_click">
 	    <div class="cards">
-		 <img src="<%= data.image.url %>" alt="img" class="card_img">
+		<img src="<%= data.image.url %>" alt="img" class="card_img">
 		<div class="card_text"> 
-		<p><b><%= data.title%></b><br>
-		&#8377;<%= data.price.toLocaleString("en-IN") %>/night<br>
-		<%= data.location %></p>
+		    <p style="font-size:8px;"><b><%= data.title%></b><br>
+		    &#8377;<%= data.price.toLocaleString("en-IN") %>/night<br>
+		    <%= data.location %></p>
 		</div>
 	    </div>
 	</a>
-	    <% } %>	
-	    </div>
+	<% } %>	
+    </div>
 </body>

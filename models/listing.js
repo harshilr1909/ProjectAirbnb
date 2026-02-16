@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Review = require('./Review.js');
 
 let listSchema = new mongoose.Schema({
     title:{
@@ -15,6 +16,8 @@ let listSchema = new mongoose.Schema({
 	},
 	url:{
 	    type:String,
+	    default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxgCTG9JTKzZpd18J9JiCjNFXe98zWhyJMJw&s",
+	    set: (v) => v === "" ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxgCTG9JTKzZpd18J9JiCjNFXe98zWhyJMJw&s" : v,
 	},
     },
     price:{
@@ -33,6 +36,10 @@ let listSchema = new mongoose.Schema({
     type:mongoose.Schema.Types.ObjectId,
     ref:"Review",
     }],
+});
+
+listSchema.post("findOneAndDelete",async(listing) => {
+    await Review.deleteMany({_id :{$in: listing.reviews}});
 });
 
 const List = mongoose.model("List",listSchema);

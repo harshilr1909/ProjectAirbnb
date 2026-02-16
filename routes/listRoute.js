@@ -27,7 +27,8 @@ router.post('/',validateList,asyncWrap(async (req,res,next) => {
     console.log(list);
     const newPost = new List(list);
     await newPost.save();
-	res.redirect('/listings');
+    req.flash("success","New post created successfully");
+    res.redirect('/listings');
     })
 );
 
@@ -35,6 +36,11 @@ router.post('/',validateList,asyncWrap(async (req,res,next) => {
 router.get('/:id/edit',asyncWrap(async (req,res) => {
     let {id} = req.params;
     const editData = await List.findById(id);
+    console.log(editData);
+    if(!editData){
+	req.flash("failure","post cannot be updated");
+	return res.redirect('/listings');
+    }
     res.render("editform.ejs",{editData,id});
 }));
 
@@ -44,32 +50,42 @@ router.patch('/:id',asyncWrap(async (req,res) => {
     console.log(list);
     let indiData = await List.findByIdAndUpdate(id,{...list},{new:true,runValidators:true});
     console.log(indiData);
+    if(!indiData){
+	req.flash("failure","post cannot be updated");
+	return res.redirect('/listings');
+    }
+    req.flash("success","Post updated successfully");
     res.redirect('/listings');
 }));
 
 router.get('/:id',asyncWrap(async(req,res,next) => {
     let {id} = req.params;
     let indiData = await List.findById(id).populate('reviews');
+    if(!indiData){
+	req.flash("failure","post doesn't exist");
+	return res.redirect('/listings');
+    }
     res.render("indidata.ejs",{indiData});
 
 }));
 
-router.delete('/:id',(req,res,next) => {
+router.delete('/:id',asyncWrap(async(req,res,next) => {
     let {id} = req.params;
-    List.findByIdAndDelete(id).then((result) => {
-	console.log(result);
-	res.redirect('/listings');
-    }).catch((err) => {
-	    next(err);
-	});
-});
+    let deletedData = await List.findByIdAndDelete(id).populate('reviews');
+    console.log(deletedData);
+    if(!deletedData){
+	req.flash("failure","post does not exist");
+	return res.redirect('/listings');
+    }
+    req.flash("success","Listing deleted successfully");
+    res.redirect('/listings');
+}));
 
 
 //index route
 router.get('/',asyncWrap(async(req,res,next) => {
 	const listings = await List.find({});
 	res.render("listings.ejs",{listings});
-
 }));
 
 

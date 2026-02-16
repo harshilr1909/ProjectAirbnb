@@ -26,6 +26,7 @@ router.post('/',validateReview,asyncWrap(async (req,res) => {
     await newReview.save();
     await list.save();
     console.log(indiData);
+    req.flash("success","Thanks for the review");
     res.redirect(`/listings/${id}`);
 }));
 
@@ -34,6 +35,10 @@ router.get('/editReview/:reviewId',asyncWrap(async(req,res) => {
     let{reviewId} = req.params;
     let currReview = await Review.findById(reviewId);
     console.log(currReview);
+    if(!currReview){
+	req.flash("failure","post does not exist");
+	return res.redirect('/listings');
+    }
     res.render('editReview.ejs',{id,currReview});
 }));
 
@@ -43,6 +48,11 @@ router.patch('/editReview/:reviewId',validateReview,asyncWrap(async(req,res) => 
     let review = req.body.review;
     let updatedReview = await Review.findByIdAndUpdate(reviewId,{...review},{runValidators:true},{new:true});
     console.log(updatedReview);
+    if(!updatedReview){
+	req.flash("failure","post does not exist");
+	return res.redirect('/listings');
+    }
+    req.flash("success","Review updated succesfully");
     res.redirect(`/listings/${id}`);
 }));
 
