@@ -4,33 +4,33 @@
 	<div class="row-md-7 offset-md-3">
 	    <div class="col-md-7">
 	    <label for="title" class="form-label">Title</label><br>
-	    <input type="text" name="title" id="title"placeholder="Use some creativity!" class="form-control" required >
+	    <input type="text" name="list[title]" id="title"placeholder="Use some creativity!" class="form-control" required >
 	    <div class="valid-feedback">great Title!</div>
 	    </div>
 	    <div class="col-md-7">
 	    <label for="price"class="form-label">price</label><br>
-	    <input type="text" name="price" id="price" placeholder="69XX..X"class="form-control" required >
+	    <input type="text" name="list[price]" id="price" placeholder="69XX..X"class="form-control" required >
 	    <div class="invalid-feedback">invalid price!please enter again</div>
 	    </div>
 	    <div class="row md-1">
 		<div class="col-md-3">
 		    <label for="location"class="form-label">location</label><br>
-		    <input type="text" name="location" id="location" placeholder="Write the location"class="form-control" required>
+		    <input type="text" name="list[location]" id="location" placeholder="Write the location"class="form-control" required>
 	    <div class="invalid-feedback">invalid location!please enter again</div>
 		</div>
 		<div class="col-md-3">
 		    <label for="country"class="form-label">country</label><br>
-		    <input type="text" name="country" id="country" class="form-control" placeholder="India/USA..etc"required>
+		    <input type="text" name="list[country]" id="country" class="form-control" placeholder="India/USA..etc"required>
 	    <div class="invalid-feedback">invalid country!please enter again</div>
 		</div>
 	    </div>
 	    <div class="col-md-7">
 	    <label for="image"class="form-label">Enter Image URL</label><br>
-	    <input type="text" name="images" id="images" class="form-control" placeholder="Http://______">
+	    <input type="text" name="list[image]" id="image" class="form-control" placeholder="Http://______">
 	    </div>
 	    <div class="col-md-7">
 	    <label for="description"class="form-label">description</label><br>
-	    <textarea name="description" id="description"class="form-control" required>
+	    <textarea name="list[description]" id="description"class="form-control" required>
 	    </textarea>
 	    <div class="invalid-feedback">enter a  short description!</div>
 	    </div>

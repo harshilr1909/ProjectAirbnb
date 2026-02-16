@@ -1,36 +1,36 @@
 <% layout('/const/boilerplate') -%> 
 <body>
-    <form action="/listings?_method=PATCH" method="post" class="needs-validation" novalidate>
+    <form action="/listings/<%=editData.id%>?_method=PATCH" method="post" class="needs-validation" novalidate>
 	<div class="row-md-6 offset-md-3">
 	    <div class="col-md-6">
 		<label for="title" class="form-label">Title</label><br>
-		<input type="text" name="title" id="title"placeholder="Use some creativity!"value="<%= editData.title%>" class="form-control" required >
+		<input type="text" name="list[title]" id="title"placeholder="Use some creativity!"value="<%= editData.title%>" class="form-control" required >
 		<div class="valid-feedback">great Title!</div>
 	    </div>
 	    <div class="col-md-6">
 		<label for="price"class="form-label">price</label><br>
-		<input type="text" name="price" id="price" placeholder="69XX..X"class="form-control"              value="<%= editData.price.toLocaleString("en-EN")%>" required >
+		<input type="text" name="list[price]" id="price" placeholder="69XX..X"class="form-control"              value="<%= editData.price %>" required >
 		<div class="invalid-feedback">invalid price!please enter again</div>
 	    </div>
 	    <div class="row md-1">
 		<div class="col-md-3">
 		    <label for="location"class="form-label">Location</label><br>
-		    <input type="text" name="location" id="location" placeholder="Write the location"class="form-control"value="<%= editData.location%>" required>
+		    <input type="text" name="list[location]" id="location" placeholder="Write the location"class="form-control"value="<%= editData.location%>" required>
 		    <div class="invalid-feedback">invalid location!please enter again</div>
 		</div>
 		<div class="col-md-3">
 		    <label for="country"class="form-label">country</label><br>
-		    <input type="text" name="country" id="country" class="form-control" placeholder="India/USA..etc"value="<%= editData.country%>"required>
+		    <input type="text" name="list[country]" id="country" class="form-control" placeholder="India/USA..etc"value="<%= editData.country%>"required>
 		    <div class="invalid-feedback">invalid country!please enter again</div>
 		</div>
 	    </div>
 	    <div class="col-md-6">
 		<label for="image"class="form-label">Enter Image URL</label><br>
-		<input type="text" name="images" id="images" class="form-control" placeholder="Http://______"value="<%= editData.image.url%>">
+		<input type="text" name="list[image]" id="image" class="form-control" placeholder="Http://______"value="<%= editData.image.url%>">
 	    </div>
 	    <div class="col-md-6">
 		<label for="description"class="form-label">Description</label><br>
-		<textarea name="description" id="description"class="form-control" required><%= editData.description%>
+		<textarea name="list[description]" id="description"class="form-control" required><%= editData.description%>
 		</textarea>
 		<div class="invalid-feedback">enter a  short description!</div>
 	    </div>
