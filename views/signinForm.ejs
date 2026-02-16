@@ -1,0 +1,27 @@
+<% layout('./const/boilerplate.ejs') %>
+<body>
+    <h1 class="offset-md-3">Signin to explore the world! </h1>
+    <form action="/signin" method="post" class="needs-validation" novalidate>
+	<div class="row-md-6 offset-md-3">
+	    <div class="col-md-6">
+		<label for="username" class="form-label">Username</label><br>
+		<input type="text" name="username" id="username" placeholder="Enter username" 
+		    class="form-control" required >
+		<div class="valid-feedback">Valid Username!</div>
+	    </div>
+	    <div class="col-md-6">
+		<label for="email" class="form-label">Email</label><br>
+		<input type="email" name="email" id="email" placeholder="Enter Email Id!" 
+		    class="form-control" required >
+		<div class="valid-feedback">looks good!</div>
+	    </div>
+	    <div class="col-md-6">
+		<label for="password"class="form-label">Password</label><br>
+		<input type="password" name="password" id="password" placeholder="Enter password" 
+		    class="form-control" required >
+		<div class="valid-feedback">strong password!</div>
+	    </div>
+	    <button class="btn btn-dark mt-3 mb-3">Signin</button>
+	</div>
+    </form>
+</body>

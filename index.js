@@ -10,6 +10,10 @@ const listRoute = require('./routes/listRoute.js');
 const reviewRoute = require('./routes/reviewRoute.js');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./models/user.js');
+const userRoute = require('./routes/userRoute.js');
 
 main().then((result) => {
     console.log("connection succesful");
@@ -37,6 +41,11 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(session(sessionOptions));
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next) => {
     res.locals.success = req.flash("success");
@@ -54,8 +63,19 @@ app.get('/',(req,res) => {
     res.render('home.ejs');
 });
 
+app.get('/demoUser',async(req,res) => {
+    let tpUser = new User({
+	email:"Baburao@gmail.com",
+	username:"Baburao",
+    });
+    let result = await User.register(tpUser,"Kutrya");
+    console.log(result);
+    res.send("User stored");
+});
+
 app.use('/listings',listRoute);
 app.use('/listings/:id/reviews',reviewRoute);
+app.use('/',userRoute);
 
 
 
