@@ -29,4 +29,21 @@ router.post('/',validateReview,asyncWrap(async (req,res) => {
     res.redirect(`/listings/${id}`);
 }));
 
+router.get('/editReview/:reviewId',asyncWrap(async(req,res) => {
+    let {id} = req.params;
+    let{reviewId} = req.params;
+    let currReview = await Review.findById(reviewId);
+    console.log(currReview);
+    res.render('editReview.ejs',{id,currReview});
+}));
+
+router.patch('/editReview/:reviewId',validateReview,asyncWrap(async(req,res) => {
+    let {id} = req.params;
+    let {reviewId} = req.params;
+    let review = req.body.review;
+    let updatedReview = await Review.findByIdAndUpdate(reviewId,{...review},{runValidators:true},{new:true});
+    console.log(updatedReview);
+    res.redirect(`/listings/${id}`);
+}));
+
 module.exports = router;

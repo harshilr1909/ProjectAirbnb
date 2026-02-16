@@ -1,0 +1,17 @@
+<% layout('./const/boilerplate.ejs') -%>
+<body>
+    <form action="/listings/<%= id %>/reviews/editReview/<%=currReview.id%>?_method=PATCH" method="POST" novalidate class="needs-validation" >
+	    <label for="ratings" class="form-label">Rate us here!</label>
+	    <div class="col-md-9 offset-1">
+		<input type="range" name="review[ratings]" id="ratings" value="currReview.ratings" class="form-range" min="1" max="5">
+	    </div>
+	    <div>
+		<label for="comments" class="form-label">Add your comment here</label>
+		<textarea name="review[comments]" id= "comments" row="3" value=""col="45" width:"75%" class="form-control"    required> <%= currReview.comments %></textarea>
+		<div class="invalid-feedback">
+		    Please leave a comment!!
+		</div>
+	    </div>
+	    <button class="btn btn-outline-dark mt-3" >Post</button>
+	</form>
+</body>

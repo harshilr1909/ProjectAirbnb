@@ -55,6 +55,9 @@
 		    <p class="card-text"><%= review.comments %></p>
 		    <p class="card-text"><%= review.ratings%> stars</p>
 		</div>
+		<form action="/listings/<%= indiData.id %>/reviews/editReview/<%= review.id %>" method="GET">
+		    <button class="btn btn-outline-dark mb-1">Edit</button>
+		</form>
 	    </div>
 	    <% } %>
 	</div>
