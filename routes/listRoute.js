@@ -38,7 +38,7 @@ router.get('/:id/edit',asyncWrap(async (req,res) => {
     const editData = await List.findById(id);
     console.log(editData);
     if(!editData){
-	req.flash("failure","post cannot be updated");
+	req.flash("error","post cannot be updated");
 	return res.redirect('/listings');
     }
     res.render("editform.ejs",{editData,id});
@@ -51,7 +51,7 @@ router.patch('/:id',asyncWrap(async (req,res) => {
     let indiData = await List.findByIdAndUpdate(id,{...list},{new:true,runValidators:true});
     console.log(indiData);
     if(!indiData){
-	req.flash("failure","post cannot be updated");
+	req.flash("error","post cannot be updated");
 	return res.redirect('/listings');
     }
     req.flash("success","Post updated successfully");
@@ -62,7 +62,7 @@ router.get('/:id',asyncWrap(async(req,res,next) => {
     let {id} = req.params;
     let indiData = await List.findById(id).populate('reviews');
     if(!indiData){
-	req.flash("failure","post doesn't exist");
+	req.flash("error","post doesn't exist");
 	return res.redirect('/listings');
     }
     res.render("indidata.ejs",{indiData});
@@ -74,7 +74,7 @@ router.delete('/:id',asyncWrap(async(req,res,next) => {
     let deletedData = await List.findByIdAndDelete(id).populate('reviews');
     console.log(deletedData);
     if(!deletedData){
-	req.flash("failure","post does not exist");
+	req.flash("error","post does not exist");
 	return res.redirect('/listings');
     }
     req.flash("success","Listing deleted successfully");
