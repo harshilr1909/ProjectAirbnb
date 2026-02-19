@@ -6,6 +6,7 @@ const CustomError = require('../utils/customError.js');
 const asyncWrap = require('../utils/asyncWrap.js');
 const {listingSchema} = require('../validateSchema/joiSchema.js');
 const Review = require('../models/Review.js');
+const {loggedIn} = require('../middlewares/loggedInMW.js');
 
 const validateList = (req,res,next) => {
     let {error,value} = listingSchema.validate(req.body);
@@ -13,11 +14,12 @@ const validateList = (req,res,next) => {
     let errMsg = error.details.map((el) => el.message ).join("");
     throw new CustomError(400,errMsg);
     }else{
-    next();
+	next();
     }
 };
 
-router.get('/new',(req,res) => {
+router.get('/new',loggedIn,(req,res) => {
+    console.log(req.user);
     res.render("addnewplace.ejs");
 });
 
@@ -33,7 +35,7 @@ router.post('/',validateList,asyncWrap(async (req,res,next) => {
 );
 
 
-router.get('/:id/edit',asyncWrap(async (req,res) => {
+router.get('/:id/edit',loggedIn,asyncWrap(async (req,res) => {
     let {id} = req.params;
     const editData = await List.findById(id);
     console.log(editData);
@@ -47,6 +49,7 @@ router.get('/:id/edit',asyncWrap(async (req,res) => {
 router.patch('/:id',asyncWrap(async (req,res) => {
     let {id} = req.params;
     let list = req.body.list;
+    console.log(id);
     console.log(list);
     let indiData = await List.findByIdAndUpdate(id,{...list},{new:true,runValidators:true});
     console.log(indiData);
