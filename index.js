@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express({mergeParams:true});
+const app = express();
 const port = 3000;
 const path = require('path');
 const mongoose = require('mongoose');

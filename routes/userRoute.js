@@ -29,7 +29,6 @@ router.post('/signin',asyncWrap(async(req,res,next) => {
 	req.flash("error",err.message);
 	return res.redirect('/listings');
     }
-
 }));
 
 router.get("/login",(req,res) => {
@@ -43,7 +42,8 @@ router.post("/login",saveRedirectUrl,passport.authenticate('local',{
 }),
     async(req,res) => {
 	req.flash("success","Welcome to Airbnb!");
-	res.redirect(res.locals.redirectUrl);
+	let redirectUrl = res.locals.redirectUrl || "/listings";
+	res.redirect(redirectUrl);
 });
 
 router.get("/logout",(req,res,next) => {

@@ -9,26 +9,30 @@
 	<h6 id="card_indidata_price">&#8377;<%= indiData.price.toLocaleString("en-EN") %>/night </h6>
 	<div class="card_indidata_text">
 	    <p>
+	    <i>Owned by <%= indiData.owner.username %></i><br>
 	    <%= indiData.location %><br>
 	    <%= indiData.country%><br>
 	    </p>
 	</div>
     </div>
-    <div class=" mt-1 ">
+    <div class=" mt-1 offset-1">
 	<p id="card_indidata_description">
 	<%= indiData.description %>
 	</p>
     </div>
     <div class="indidata_btns">
+    <% if(currUser && currUser._id.equals(indiData.owner._id)) { %> 
 	<form action="/listings/<%= indiData.id %>?_method=DELETE" class="delete_btn" method="post">
 	    <button class="btn btn-dark custom-btn-size custom-btn-color">Delete</button>
 	</form>
 	<form action="/listings/<%= indiData.id %>/edit" class="edit_btn" method="get"> 
 	    <button class="btn btn-dark custom-btn-size custom-btn-color">Edit</button>
 	</form>
+    <% } %>
     </div>
     <hr>
     <div class="Review-box row-md-10 col-md-10 offset-md-1 mt-3 mb-3">
+	<% if (currUser ) { %> 
 	<h4>Write a review!</h4>
 	<form action="/listings/<%= indiData.id %>/reviews" method="POST" novalidate class="needs-validation" >
 	    <label for="ratings" class="form-label">Rate us here!</label>
@@ -45,19 +49,21 @@
 	    </div>
 	    <button class="btn btn-outline-dark mt-3" >Post</button>
 	</form>
-	<hr>
+	<% } %>
 	<p><b>All Reviews</b></p>
 	<div class="row">
 	    <% for(let review of indiData.reviews) { %>
 	    <div class="card col-5 ms-3 mt-3">
 		<div class="card-body ">
-		    <h6 class="class-title"><b>John Doe</b></h6>
+		    <h6 class="class-title"><b><i>@<%= review.author.username %></i> </b></h6>
 		    <p class="card-text"><%= review.comments %></p>
 		    <p class="card-text"><%= review.ratings%> stars</p>
 		</div>
+		<% if(currUser && currUser._id.equals(review.author._id)) { %>
 		<form action="/listings/<%= indiData.id %>/reviews/editReview/<%= review.id %>" method="GET">
 		    <button class="btn btn-outline-dark mb-1">Edit</button>
 		</form>
+		<% } %>
 	    </div>
 	    <% } %>
 	</div>
