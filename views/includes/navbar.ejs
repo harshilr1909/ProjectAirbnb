@@ -2,19 +2,18 @@
     <div>
 	    <ul>
 		<li><a href="/" style="#d41406"><i class="fa-solid fa-house" style="#d41406"></i></a></li>
-		<li><a href="/listings">Listings</a></li>
-		<li><a href="#">Features</a></li>
-		<li><a href="/listings/new">Add new Listings</a></li>
+		<li><a href="/listings">Explore</a></li>
 	    </ul>
     </div>
     <div class="nav ">
 	    <ul>
+		<li><a href="/listings/new">Become a host</a></li>
 		<% if(!currUser) { %>
-		<li><a href="/signin" >Signin </a></li>
-		<li><a href="/login">login</a></li>
+		<li><a href="/signin" ><b>Signin</b> </a></li>
+		<li><a href="/login"><b>login</b></a></li>
 		<% } %>
 		<% if(currUser) { %> 
-		<li><a href="/logout">logout</a></li>
+		<li><a href="/logout"><b>logout</b></a></li>
 		<% } %> 
 	    </ul>
     </div>

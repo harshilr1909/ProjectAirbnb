@@ -5,7 +5,7 @@ const Review = require('../models/Review.js');
 const List = require('../models/listing.js');
 const {validateReview} = require('../middlewares/validateReview.js');
 const {loggedIn} = require('../middlewares/loggedInMW.js');
-const {isAuthor} = require('../middlewares/');
+const {isAuthor} = require('../middlewares/isAuthor.js');
 
 
 router.post('/',loggedIn,validateReview,asyncWrap(async (req,res) => {

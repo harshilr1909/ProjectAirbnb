@@ -1,6 +1,6 @@
 <% layout('./const/boilerplate') -%>
 <body>
-    <form action="/listings" method="post" class="needs-validation" novalidate>
+    <form action="/listings" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
 	<div class="row-md-7 offset-md-3">
 	    <div class="col-md-7">
 	    <label for="title" class="form-label">Title</label><br>
@@ -25,8 +25,8 @@
 		</div>
 	    </div>
 	    <div class="col-md-7">
-	    <label for="image"class="form-label">Enter Image URL</label><br>
-	    <input type="text" name="list[image]" id="image" class="form-control" placeholder="Http://______">
+	    <label for="image"class="form-label">upload Image</label><br>
+	    <input type="file" name="list[image]" id="image" class="form-control" placeholder="Http://______">
 	    </div>
 	    <div class="col-md-7">
 	    <label for="description"class="form-label">description</label><br>

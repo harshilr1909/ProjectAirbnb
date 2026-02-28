@@ -1,6 +1,55 @@
-<% layout('./const/boilerplate') -%>
+<% layout('./const/boilerplate.ejs') -%>
 <body>
-    <h3>ALL LISTINGS </h3>
+    <div class="filters mt-3">
+	<div class="filter">
+	    <div class="icons"> 
+		<i class="fa-solid fa-fire"></i>
+	    </div>
+	    <p>Trending</p>
+	</div>
+	<div class="filter">
+	    <div class="icons"> 
+		<i class="fa-solid fa-umbrella-beach"></i>
+	    </div>
+	    <p>Beaches</p>
+	</div>
+	<div class="filter">
+	    <div class="icons">
+		<i class="fa-solid fa-mountain-sun"></i>
+	    </div>
+	    <p>Mountains</p>
+	</div>
+	<div class="filter">
+	    <div class="icons">
+		<i class="fa-solid fa-door-open"></i>
+	    </div>
+	    <p>Outdoors</p>
+	</div>
+	<div class="filter">
+	    <div class="icons"> 
+		<i class="fa-solid fa-snowman"></i>
+	    </div>
+	    <p>Snowy</p>
+	</div>
+	<div class="filter">
+	    <div class="icons"> 
+		<i class="fa-solid fa-campground"></i>
+	    </div>
+	    <p>camping</p>
+	</div>
+	<div class="filter">
+	    <div class="icons">
+		<i class="fa-solid fa-tree-city"></i>
+	    </div>
+	    <p>Cities</p>
+	</div>
+	<div class="filter">
+	    <div class="icons">
+		<i class="fa-solid fa-compass"></i>
+	    </div>
+	    <p>Adventure</p>
+	</div>
+    </div>
     <div class="card_container row-md-10">
 	<% for(let data of listings){ %>
 	<a href="/listings/<%= data.id %>" class="card_click">

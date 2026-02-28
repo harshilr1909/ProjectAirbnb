@@ -1,3 +1,6 @@
+if(process.env.NODE_ENV != "production"){
+    require("dotenv").config();
+}
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -14,6 +17,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const userRoute = require('./routes/userRoute.js');
+
+
 
 main().then((result) => {
     console.log("connection succesful");
