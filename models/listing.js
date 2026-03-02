@@ -39,6 +39,10 @@ let listSchema = new mongoose.Schema({
     type:mongoose.Schema.Types.ObjectId,
     ref:"User",
     },
+    category:{
+	type:String,
+	enum: ["beaches","mountains","outdoors","camping","snowy","adventure"],
+    },
 });
 
 listSchema.post("findOneAndDelete",async(listing) => {
