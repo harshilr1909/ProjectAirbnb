@@ -14,6 +14,21 @@ router.get('/new',loggedIn,(req,res) => {
     res.render("addnewplace.ejs");
 });
 
+router.get('/beaches',asyncWrap(async(req,res) => {
+    const listings = await List.find({});
+    res.render("beachListings.ejs",{listings});
+}));
+
+router.get('/mountains',asyncWrap(async(req,res) => {
+    const listings = await List.find({});
+    res.render("mountainListings.ejs",{listings});
+}));
+
+router.get('/adventure',asyncWrap(async(req,res) => {
+    const listings = await List.find({});
+    res.render("adventureListings.ejs",{listings});
+}));
+
 
 router.post('/',upload.single('list[image]'),loggedIn,validateList,asyncWrap(async (req,res,next) => {
     let url = req.file.path;
@@ -90,12 +105,12 @@ router.delete('/:id',isOwner,loggedIn,asyncWrap(async(req,res,next) => {
     res.redirect('/listings');
 }));
 
-
-//index route
-router.get('/',asyncWrap(async(req,res,next) => {
-	const listings = await List.find({});
-	res.render("listings.ejs",{listings});
+router.get('/',asyncWrap(async(req,res) => {
+let listings = await List.find({});
+res.render('listings.ejs',{listings});
 }));
+
+
 
 
 module.exports = router;
