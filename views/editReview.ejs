@@ -3,7 +3,19 @@
     <form action="/listings/<%= id %>/reviews/editReview/<%=currReview.id%>?_method=PATCH" method="POST" novalidate class="needs-validation" >
 	    <label for="ratings" class="form-label">Rate us here!</label>
 	    <div class="col-md-9 offset-1">
-		<input type="range" name="review[ratings]" id="ratings" value="currReview.ratings" class="form-range" min="1" max="5">
+		<fieldset class="starability-slot">
+		    <input type="radio" id="no-rate" class="input-no-rate" name="review[ratings]" value="1" checked aria-label="No rating." />
+		    <input type="radio" id="first-rate1" name="review[ratings]" value="1" />
+		    <label for="first-rate1" title="Terrible">1 star</label>
+		    <input type="radio" id="first-rate2" name="review[ratings]" value="2" />
+		    <label for="first-rate2" title="Not good">2 stars</label>
+		    <input type="radio" id="first-rate3" name="review[ratings]" value="3" />
+		    <label for="first-rate3" title="Average">3 stars</label>
+		    <input type="radio" id="first-rate4" name="review[ratings]" value="4" />
+		    <label for="first-rate4" title="Very good">4 stars</label>
+		    <input type="radio" id="first-rate5" name="review[ratings]" value="5" />
+		    <label for="first-rate5" title="Amazing">5 stars</label>
+		</fieldset>
 	    </div>
 	    <div>
 		<label for="comments" class="form-label">Add your comment here</label>

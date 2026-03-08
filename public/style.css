@@ -154,11 +154,43 @@ footer{
     position:sticky !important;
     top:0px;
     background-color:white;
-    height:2rem !important;
+    height:2.2rem !important;
     padding:0px !important;
+    border-bottom:1px solid #cbd4d3;
 
 }
 
+
+.search .me-2{
+    height:1.7rem !important;
+    margin-top:0.2rem !important;
+    font-size:0.7rem;
+    border-radius:25px;
+}
+
+.search .btn-search{
+    height:1.7rem;
+    margin-top:0.2rem !important;
+    text-align:center !important;
+    color:white;
+    font-size:0.7rem !important;
+    background-color:#f70546;
+    border-radius:25px;
+}
+
+.search .btn-search:hover{
+    height:1.7rem;
+    text-align:center !important;
+    color:white;
+    font-size:0.7rem !important;
+    background-color:#f70546;
+    border-radius:25px;
+}
+.btn-search i {
+    margin-right:5px;
+    display:inline;
+}
+    
 .navbar ul {
     padding:0;
     margin:0;
@@ -207,5 +239,4 @@ footer{
 .filter:hover{
     opacity:1;
 }
-
 

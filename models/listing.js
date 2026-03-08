@@ -41,7 +41,6 @@ let listSchema = new mongoose.Schema({
     },
     category:{
 	type:String,
-	enum: ["beaches","mountains","outdoors","camping","snowy","adventure"],
     },
 });
 

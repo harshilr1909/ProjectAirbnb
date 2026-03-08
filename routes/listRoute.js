@@ -111,6 +111,4 @@ res.render('listings.ejs',{listings});
 }));
 
 
-
-
 module.exports = router;

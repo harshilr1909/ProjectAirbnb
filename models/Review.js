@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
-main().then((result) => {
-    console.log("review connection successful");
-}).catch((err) => {
-	console.log(err);
-    });
+//main().then((result) => {
+    //console.log("review connection successful");
+//}).catch((err) => {
+	//console.log(err);
+    //});
 
-async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/abnb');
-}
+//async function main() {
+ //   await mongoose.connect('mongodb://127.0.0.1:27017/abnb');
+//}
 
 const reviewSchema = new mongoose.Schema({
     comments:{

@@ -17,6 +17,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const userRoute = require('./routes/userRoute.js');
+const dbUrl = process.env.ATLAS_URL;
 
 
 
@@ -29,7 +30,7 @@ main().then((result) => {
 
 
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/abnb");
+    await mongoose.connect(dbUrl);
 };
 
 const sessionOptions = {

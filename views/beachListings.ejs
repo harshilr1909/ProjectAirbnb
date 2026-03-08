@@ -1,5 +1,6 @@
 <% layout('./const/boilerplate.ejs') -%>
     <div class="card_container row-md-10">
+	<%- include('./includes/toggles.ejs') %>
 	<% for(let data of listings){ %>
 	<% if(data.category === "beaches" ) { %>
 	<a href="/listings/<%= data.id %>" class="card_click">

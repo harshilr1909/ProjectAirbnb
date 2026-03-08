@@ -1,11 +1,19 @@
 <nav class="navbar">
-    <div>
+    <div class="navbar-nav">
 	    <ul>
-		<li><a href="/listings" style="color:#d41406;opacity:1;"><i class="fa-solid fa-house"></i></a></li>
+		<li><a href="/listings" style="color:#f70546;opacity:1;"><i class="fa-solid fa-house"></i></a></li>
 		<li><a href="/listings">Explore</a></li>
 	    </ul>
     </div>
-    <div class="nav ">
+    <div class="navbar-nav search">
+	  <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-search " type="submit">
+	    <i class="fa-solid fa-magnifying-glass"></i>Search
+	</button>
+      </form>
+    </div>
+    <div class="navbar-nav">
 	    <ul>
 		<li><a href="/listings/new">Become a host</a></li>
 		<% if(!currUser) { %>
