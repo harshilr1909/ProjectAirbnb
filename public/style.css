@@ -159,6 +159,7 @@ footer{
     background-color:white;
     padding:8px 15px !important;
     border-bottom:1px solid #cbd4d3;
+    z-index: 1000;
 
 }
 
@@ -225,7 +226,7 @@ footer{
 .filters{
     display:flex;
     flex-wrap:wrap;
-    margin-top:10px;
+    margin-top:3rem !important;
     margin-right:1rem !important;
     padding: 8px 0;
     }
