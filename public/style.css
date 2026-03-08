@@ -272,5 +272,47 @@ textarea {
 
 textarea::-webkit-resizer {
     background-color:transparent;
+}
 
+@media (max-width: 768px) {
+    .cards {
+        width: 45%;
+    }
+    .img-fluid {
+        width: 100%;
+    }
+    .filters .filter {
+        margin-left: 0.5rem;
+        font-size: 0.7rem;
+    }
+}
 
+@media (max-width: 576px) {
+    .cards {
+        width: 90%;
+        height: auto;
+    }
+    .card_container {
+        justify-content: center;
+    }
+    .navbar {
+        height: auto !important;
+        padding: 5px !important;
+    }
+    .search {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .filters {
+        justify-content: center;
+    }
+    .indidata_btns {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cards {
+        width: 15rem;
+    }
+}
