@@ -289,13 +289,14 @@ textarea::-webkit-resizer {
 
 @media (max-width: 576px) {
     .cards {
-        width: 90%;
+        width: 85%;
         height: auto;
     }
     .card_container {
         justify-content: center;
     }
     .navbar {
+	background-color:white;
         height: auto !important;
         padding: 5px !important;
     }

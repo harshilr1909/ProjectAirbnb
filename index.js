@@ -19,6 +19,7 @@ const User = require('./models/user.js');
 const userRoute = require('./routes/userRoute.js');
 const { MongoStore } = require("connect-mongo");
 const dbUrl = process.env.ATLAS_URL;
+const List = require('./models/listing.js');
 
 
 
@@ -81,15 +82,9 @@ app.use((req,res,next) => {
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
 
-
-app.get('/demoUser',async(req,res) => {
-    let tpUser = new User({
-	email:"Baburao@gmail.com",
-	username:"Baburao",
-    });
-    let result = await User.register(tpUser,"Kutrya");
-    console.log(result);
-    res.send("User stored");
+app.get('/',async(req,res) => {
+const listings = await List.find({});
+res.render("listings.ejs",{listings});
 });
 
 app.use('/listings',listRoute);
