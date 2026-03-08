@@ -58,7 +58,6 @@ footer{
     margin:0px;
     margin-top:auto;
     background-color:#ebebeb;
-    height:4rem;
 }
 .footer_info{
     display:flex;
@@ -156,10 +155,9 @@ footer{
 }
 .navbar {
     position:sticky !important;
-    top:0px;
+    top:0;
     background-color:white;
-    height:2.2rem !important;
-    padding:0px !important;
+    padding:8px 15px !important;
     border-bottom:1px solid #cbd4d3;
 
 }
@@ -202,6 +200,7 @@ footer{
     align-items:center;
     list-style-type: none;
     font-size:0.8rem;
+    gap:1rem;
     }
 
 .navbar li {
@@ -226,7 +225,9 @@ footer{
 .filters{
     display:flex;
     flex-wrap:wrap;
+    margin-top:10px;
     margin-right:1rem !important;
+    padding: 8px 0;
     }
 .filters .filter{
     text-align:center;
@@ -275,9 +276,6 @@ textarea::-webkit-resizer {
 }
 
 @media (max-width: 768px) {
-    .cards {
-        width: 45%;
-    }
     .img-fluid {
         width: 100%;
     }
@@ -289,7 +287,7 @@ textarea::-webkit-resizer {
 
 @media (max-width: 576px) {
     .cards {
-        width: 85%;
+        width: 90%;
         height: auto;
     }
     .card_container {
@@ -314,6 +312,56 @@ textarea::-webkit-resizer {
 
 @media (min-width: 1200px) {
     .cards {
-        width: 15rem;
+        width: 20rem;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .filters .filter {
+        margin-left: 1rem;
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .filters {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .filters .filter {
+        flex-shrink: 0;
+        font-size: 0.75rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .img-fluid {
+        height: auto;
+        min-height: 200px;
+    }
+    .indidata_btns .custom-btn-size {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-control {
+        font-size: 14px;
+    }
+    .dropdown #atbt-info {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+    footer {
+        height: auto;
+        padding: 10px 5px;
+    }
+    .anchor_links a {
+        font-size: 0.6rem;
+        margin: 0 3px;
     }
 }
