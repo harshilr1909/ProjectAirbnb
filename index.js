@@ -81,9 +81,6 @@ app.use((req,res,next) => {
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
 
-app.get('/',(req,res) => {
-    res.render('listings.ejs');
-});
 
 app.get('/demoUser',async(req,res) => {
     let tpUser = new User({
