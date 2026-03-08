@@ -3,35 +3,35 @@
     <form action="/listings" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
 	<div class="row-md-7 offset-md-3">
 	    <div class="col-md-7">
-	    <label for="title" class="form-label">Title</label><br>
+		<label for="title" class="form-label">Title</label><br>
 		<input type="text" name="list[title]" id="title"placeholder="Use some creativity!" class="form-control" required >
 		<div class="valid-feedback">great Title!</div>
-		</div>
-		<div class="col-md-7">
-		<label for="price"class="form-label">price</label><br>
+	    </div>
+	    <div class="col-md-7">
+		<label for="price"class="form-label">Price</label><br>
 		<input type="text" name="list[price]" id="price" placeholder="69XX..X"class="form-control" required >
 		<div class="invalid-feedback">invalid price!please enter again</div>
+	    </div>
+	    <div class="row md-1">
+		<div class="col-md-3">
+		    <label for="location"class="form-label">Location</label><br>
+		    <input type="text" name="list[location]" id="location" placeholder="Write the location"class="form-control" required>
+		    <div class="invalid-feedback">invalid location!please enter again</div>
 		</div>
-		<div class="row md-1">
-		    <div class="col-md-3">
-			<label for="location"class="form-label">location</label><br>
-			<input type="text" name="list[location]" id="location" placeholder="Write the location"class="form-control" required>
-		<div class="invalid-feedback">invalid location!please enter again</div>
-		    </div>
-		    <div class="col-md-3">
-			<label for="country"class="form-label">country</label><br>
-			<input type="text" name="list[country]" id="country" class="form-control" placeholder="India/USA..etc"required>
-		<div class="invalid-feedback">invalid country!please enter again</div>
-		    </div>
+		<div class="col-md-3">
+		    <label for="country"class="form-label">Country</label><br>
+		    <input type="text" name="list[country]" id="country" class="form-control" placeholder="India/USA..etc"required>
+		    <div class="invalid-feedback">invalid country!please enter again</div>
 		</div>
-		<div class="col-md-7">
-	<label for="image"class="form-label">upload Image</label><br>
+	    </div>
+	    <div class="col-md-7">
+		<label for="image"class="form-label">Upload Image</label><br>
 		<input type="file" name="list[image]" id="image" class="form-control" placeholder="Http://______">
-    	</div>
-		<div class="col-md-7 mt-2 mb-2">
-		    <label for="atbt-info">
+	    </div>
+	    <div class="col-md-7 mt-2 mb-2 dropdown">
+		<label for="atbt-info">Renowned For</label>
 		    <select name="list[category]" id="atbt-info">
-			<option value="">--Please Select an option--</option>
+			<option value="">--Reason to visit--</option>
 			<option value="adventure">Adventure</option>
 			<option value="beaches">Beaches</option>
 			<option value="mountains">Mountains</option>
@@ -40,16 +40,16 @@
 			<option value="outdoors">Outdoors</option>
 			<option value="cities">Cities</option>
 		    </select>
-		</div>
-		<div class="col-md-7">
-		<label for="description"class="form-label">description</label><br>
+	    </div>
+	    <div class="col-md-7">
+		<label for="description"class="form-label">Description</label><br>
 		<textarea name="list[description]" id="description"class="form-control" required>
 		</textarea>
 		<div class="invalid-feedback">enter a  short description!</div>
-		</div>
-		<br>
-		<button class="btn btn-dark custom-btn-size custom-btn-color mb-3">post</button>
 	    </div>
-	    </form>
-	    
-    </body>
+	    <br>
+	    <button class="btn btn-dark custom-btn-size custom-btn-color mb-3">post</button>
+	</div>
+    </form>
+
+</body>

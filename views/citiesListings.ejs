@@ -3,7 +3,7 @@
     <%- include('./includes/toggles.ejs') %>
     <div class="card_container row-md-10">
 	<% for(let data of listings){ %>
-	<% if(data.category === "beaches" ) { %>
+	<% if(data.category === "cities" ) { %>
 	<a href="/listings/<%= data.id %>" class="card_click">
 	    <div class="cards">
 		<img src="<%= data.image.url %>" alt="img" class="card_img">
@@ -18,3 +18,4 @@
 	<% } %>	
     </div>
 </body>
+

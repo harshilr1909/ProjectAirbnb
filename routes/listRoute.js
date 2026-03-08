@@ -19,6 +19,25 @@ router.get('/beaches',asyncWrap(async(req,res) => {
     res.render("beachListings.ejs",{listings});
 }));
 
+router.get('/camping',asyncWrap(async(req,res) => {
+    const listings = await List.find({});
+    res.render("campingListings.ejs",{listings});
+}));
+
+router.get('/outdoors',asyncWrap(async(req,res) => {
+    const listings = await List.find({});
+    res.render("outdoorsListings.ejs",{listings});
+}));
+
+router.get('/snowy',asyncWrap(async(req,res) => {
+    const listings = await List.find({});
+    res.render("snowyListings.ejs",{listings});
+}));
+
+router.get('/cities',asyncWrap(async(req,res) => {
+    const listings = await List.find({});
+    res.render("citiesListings.ejs",{listings});
+}));
 router.get('/mountains',asyncWrap(async(req,res) => {
     const listings = await List.find({});
     res.render("mountainListings.ejs",{listings});

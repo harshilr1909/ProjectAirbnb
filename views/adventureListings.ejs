@@ -1,6 +1,6 @@
-
 <% layout('./const/boilerplate.ejs') -%>
-	<%- include('./includes/toggles.ejs') %>
+<body>
+    <%- include('./includes/toggles.ejs') %>
     <div class="card_container row-md-10">
 	<% for(let data of listings){ %>
 	<% if(data.category === "adventure" ) { %>
@@ -17,6 +17,4 @@
 	<% } %>	
 	<% } %>	
     </div>
-
-	
 </body>

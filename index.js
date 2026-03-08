@@ -17,6 +17,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const userRoute = require('./routes/userRoute.js');
+const { MongoStore } = require("connect-mongo");
 const dbUrl = process.env.ATLAS_URL;
 
 
@@ -33,10 +34,24 @@ async function main() {
     await mongoose.connect(dbUrl);
 };
 
+const store = MongoStore.create({
+    mongoUrl:dbUrl,
+    crypto:{
+	secret:process.env.SECRET,
+    },
+    touchAfter : 24 * 60 * 60,
+});
+
 const sessionOptions = {
-    secret:"itsaverysecretcode",
+    store:store,
+    secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
+    cookie:{
+	expires:Date.now() + 7 *24 * 60 * 60 *1000,
+	maxAge:7 *24*60*60*1000,
+	httpOnly:true,
+    }
 };
 
 app.engine("ejs",ejsMate);
@@ -67,7 +82,7 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views"));
 
 app.get('/',(req,res) => {
-    res.render('home.ejs');
+    res.render('listings.ejs');
 });
 
 app.get('/demoUser',async(req,res) => {

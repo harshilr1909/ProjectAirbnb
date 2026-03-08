@@ -3,6 +3,7 @@ body{
     flex-direction:column;
     min-height:100vh;
     flex:1;
+    overflow-x:hidden;
 }
 .container{  
     padding:0px !important;
@@ -37,11 +38,14 @@ body{
     height:13rem;
     margin:5px;
     border-radius:12px;
-}
+    transition: transform 0.5s;
+    }
 
 .cards:hover{
-    border:2px solid gray;
+    transform: scale(1.05);
+    box-shadow:8px 5px 5px grey;
 }
+
 .card_text{
     font-size:12px;
 }
@@ -239,4 +243,34 @@ footer{
 .filter:hover{
     opacity:1;
 }
+
+.dropdown #atbt-info {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 0.5px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropdown #atbt-info:hover {
+    border: 2px solid #059bf2;
+}
+
+
+.dropdown #atbt-info option {
+    padding: 10px;
+    background-color: white;
+    color: #333;
+}
+
+textarea {
+    resize:both;
+}
+
+textarea::-webkit-resizer {
+    background-color:transparent;
+
 
