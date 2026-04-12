@@ -9,7 +9,7 @@
 	<h6 id="card_indidata_price">&#8377;<%= indiData.price.toLocaleString("en-EN") %>/night </h6>
 	<div class="card_indidata_text">
 	    <p>
-	    <i>Owned by <%= indiData.owner.username %></i><br>
+	    <i>Owned by <%= indiData.owner ? indiData.owner.username : 'Unknown' %></i><br>
 	    <%= indiData.location %><br>
 	    <%= indiData.country%><br>
 	    </p>
@@ -21,7 +21,7 @@
 	</p>
     </div>
     <div class="indidata_btns">
-    <% if(currUser && currUser._id.equals(indiData.owner._id)) { %> 
+    <% if(currUser && indiData.owner && currUser._id.equals(indiData.owner._id)) { %> 
 	<form action="/listings/<%= indiData.id %>?_method=DELETE" class="delete_btn" method="post">
 	    <button class="btn btn-dark custom-btn-size custom-btn-color">Delete</button>
 	</form>

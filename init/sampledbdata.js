@@ -1,6 +1,9 @@
+require('dotenv').config({path:"/home/harshil/ProjectAirbnb/.env"});
 const initdata = require('./data.js');
 const mongoose = require('mongoose');
+const {MongoStore} = require('connect-mongo');
 const List = require('../models/listing.js');
+const dbUrl = process.env.ATLAS_URL;
 
 
 main().then((result) => {
@@ -10,8 +13,16 @@ main().then((result) => {
     });
 
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/abnb");
+    await mongoose.connect(process.env.ATLAS_URL);
 };
+
+const store = MongoStore.create({
+    mongoUrl:dbUrl,
+    crypto:{
+	secret:process.env.SECRET,
+    },
+    touchAfter : 24 * 60 * 60,
+});
 
 let initDB = async() => {
     await List.deleteMany({});
@@ -20,4 +31,6 @@ let initDB = async() => {
 };
 
 
-initDB();
+initDB().then(() => {
+    process.exit(0);
+});
