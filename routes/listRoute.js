@@ -48,6 +48,12 @@ router.get('/adventure',asyncWrap(async(req,res) => {
     res.render("adventureListings.ejs",{listings});
 }));
 
+router.get('/search',asyncWrap(async (req,res) => {
+    const {searchStr} = req.params;
+    const listings = await List.find({});
+    res.render("searchListings.ejs",{listings,searchStr});
+    }
+));
 
 router.post('/',upload.single('list[image]'),loggedIn,validateList,asyncWrap(async (req,res,next) => {
     let url = req.file.path;
