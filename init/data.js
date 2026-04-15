@@ -11,6 +11,8 @@ const sampleListings = [
     location: "Malibu",
     country: "United States",
     category: "beaches",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Modern Loft in Downtown",
@@ -24,6 +26,8 @@ const sampleListings = [
     location: "New York City",
     country: "United States",
     category: "adventure",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Mountain Retreat",
@@ -37,6 +41,8 @@ const sampleListings = [
     location: "Aspen",
     country: "United States",
     category: "mountains",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Historic Villa in Tuscany",
@@ -50,6 +56,8 @@ const sampleListings = [
     location: "Florence",
     country: "Italy",
     category: "adventure",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Secluded Treehouse Getaway",
@@ -63,6 +71,8 @@ const sampleListings = [
     location: "Portland",
     country: "United States",
     category: "adventure",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Beachfront Paradise",
@@ -76,6 +86,8 @@ const sampleListings = [
     location: "Cancun",
     country: "Mexico",
     category: "beaches",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Rustic Cabin by the Lake",
@@ -89,6 +101,8 @@ const sampleListings = [
     location: "Lake Tahoe",
     country: "United States",
     category: "mountains",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Luxury Penthouse with City Views",
@@ -102,6 +116,8 @@ const sampleListings = [
     location: "Los Angeles",
     country: "United States",
     category: "adventure",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Ski-In/Ski-Out Chalet",
@@ -115,6 +131,8 @@ const sampleListings = [
     location: "Verbier",
     country: "Switzerland",
     category: "mountains",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Safari Lodge in the Serengeti",
@@ -128,6 +146,8 @@ const sampleListings = [
     location: "Serengeti National Park",
     country: "Tanzania",
     category: "adventure",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Historic Canal House",
@@ -141,6 +161,8 @@ const sampleListings = [
     location: "Amsterdam",
     country: "Netherlands",
     category: "adventure",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Private Island Retreat",
@@ -154,6 +176,8 @@ const sampleListings = [
     location: "Fiji",
     country: "Fiji",
     category: "beaches",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Charming Cottage in the Cotswolds",
@@ -167,6 +191,8 @@ const sampleListings = [
     location: "Cotswolds",
     country: "United Kingdom",
     category: "mountains",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Historic Brownstone in Boston",
@@ -180,6 +206,8 @@ const sampleListings = [
     location: "Boston",
     country: "United States",
     category: "adventure",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Beachfront Bungalow in Bali",
@@ -193,6 +221,8 @@ const sampleListings = [
     location: "Bali",
     country: "Indonesia",
     category: "beaches",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Mountain View Cabin in Banff",
@@ -206,6 +236,8 @@ const sampleListings = [
     location: "Banff",
     country: "Canada",
     category: "mountains",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Art Deco Apartment in Miami",
@@ -219,6 +251,8 @@ const sampleListings = [
     location: "Miami",
     country: "United States",
     category: "beaches",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Tropical Villa in Phuket",
@@ -232,110 +266,8 @@ const sampleListings = [
     location: "Phuket",
     country: "Thailand",
     category: "beaches",
-  },
-  {
-    title: "Historic Castle in Scotland",
-    description:
-      "Live like royalty in this historic castle in the Scottish Highlands. Explore the rugged beauty of the area.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJlYWNoJTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 4000,
-    location: "Scottish Highlands",
-    country: "United Kingdom",
-    category: "mountains",
-  },
-  {
-    title: "Desert Oasis in Dubai",
-    description:
-      "Experience luxury in the middle of the desert in this opulent oasis in Dubai with a private pool.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 5000,
-    location: "Dubai",
-    country: "United Arab Emirates",
-    category: "adventure",
-  },
-  {
-    title: "Rustic Log Cabin in Montana",
-    description:
-      "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1100,
-    location: "Montana",
-    country: "United States",
-    category: "mountains",
-  },
-  {
-    title: "Beachfront Villa in Greece",
-    description:
-      "Enjoy the crystal-clear waters of the Mediterranean in this beautiful beachfront villa on a Greek island.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dmlsbGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2500,
-    location: "Mykonos",
-    country: "Greece",
-    category: "beaches",
-  },
-  {
-    title: "Eco-Friendly Treehouse Retreat",
-    description:
-      "Stay in an eco-friendly treehouse nestled in the forest. It's the perfect escape for nature lovers.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 750,
-    location: "Costa Rica",
-    country: "Costa Rica",
-    category: "adventure",
-  },
-  {
-    title: "Historic Cottage in Charleston",
-    description:
-      "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1600,
-    location: "Charleston",
-    country: "United States",
-    category: "adventure",
-  },
-  {
-    title: "Modern Apartment in Tokyo",
-    description:
-      "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 2000,
-    location: "Tokyo",
-    country: "Japan",
-    category: "adventure",
-  },
-  {
-    title: "Lakefront Cabin in New Hampshire",
-    description:
-      "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
-    image: {
-      filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
-    },
-    price: 1200,
-    location: "New Hampshire",
-    country: "United States",
-    category: "mountains",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Luxury Villa in the Maldives",
@@ -349,6 +281,8 @@ const sampleListings = [
     location: "Maldives",
     country: "Maldives",
     category: "beaches",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Ski Chalet in Aspen",
@@ -362,6 +296,8 @@ const sampleListings = [
     location: "Aspen",
     country: "United States",
     category: "mountains",
+    reviews: [],
+    owner: null,
   },
   {
     title: "Secluded Beach House in Costa Rica",
@@ -375,6 +311,113 @@ const sampleListings = [
     location: "Costa Rica",
     country: "Costa Rica",
     category: "beaches",
+    reviews: [],
+    owner: null,
+  },
+  {
+    title: "Historic Castle in Scotland",
+    description:
+      "Live like royalty in this historic castle in the Scottish Highlands. Explore the rugged beauty of the area.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJlYWNoJTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 4000,
+    location: "Scottish Highlands",
+    country: "United Kingdom",
+    category: "mountains",
+    reviews: [],
+    owner: null,
+  },
+  {
+    title: "Desert Oasis in Dubai",
+    description:
+      "Experience luxury in the middle of the desert in this opulent oasis in Dubai with a private pool.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 5000,
+    location: "Dubai",
+    country: "United Arab Emirates",
+    category: "adventure",
+    reviews: [],
+    owner: null,
+  },
+  {
+    title: "Rustic Log Cabin in Montana",
+    description:
+      "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1100,
+    location: "Montana",
+    country: "United States",
+    category: "mountains",
+    reviews: [],
+    owner: null,
+  },
+  {
+    title: "Eco-Friendly Treehouse Retreat",
+    description:
+      "Stay in an eco-friendly treehouse nestled in the forest. It's the perfect escape for nature lovers.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 750,
+    location: "Costa Rica",
+    country: "Costa Rica",
+    category: "adventure",
+    reviews: [],
+    owner: null,
+  },
+  {
+    title: "Historic Cottage in Charleston",
+    description:
+      "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1600,
+    location: "Charleston",
+    country: "United States",
+    category: "adventure",
+    reviews: [],
+    owner: null,
+  },
+  {
+    title: "Modern Apartment in Tokyo",
+    description:
+      "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 2000,
+    location: "Tokyo",
+    country: "Japan",
+    category: "adventure",
+    reviews: [],
+    owner: null,
+  },
+  {
+    title: "Lakefront Cabin in New Hampshire",
+    description:
+      "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
+    image: {
+      filename: "listingimage",
+      url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    price: 1200,
+    location: "New Hampshire",
+    country: "United States",
+    category: "mountains",
+    reviews: [],
+    owner: null,
   },
 ];
 
