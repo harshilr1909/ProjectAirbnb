@@ -30,6 +30,19 @@
 		<input type="file" name="list[image]" id="image" class="form-control" required>
 
 	    </div>
+	    <div class="col-md-7 mt-2 mb-2 dropdown">
+		<label for="atbt-info">Renowned For</label>
+		    <select name="list[category]" id="atbt-info">
+			<option value="">--Reason to visit--</option>
+			<option value="adventure">Adventure</option>
+			<option value="beaches">Beaches</option>
+			<option value="mountains">Mountains</option>
+			<option value="snowy">Snowy</option>
+			<option value="camping">Camping</option>
+			<option value="outdoors">Outdoors</option>
+			<option value="cities">Cities</option>
+		    </select>
+	    </div>
 	    <div class="col-md-6">
 		<label for="description"class="form-label">Description</label><br>
 		<textarea name="list[description]" id="description"class="form-control" required><%= editData.description%>

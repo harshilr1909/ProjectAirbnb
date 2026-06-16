@@ -24,7 +24,7 @@ const List = require('./models/listing.js');
 
 
 main().then((result) => {
-    console.log("connection succesful");
+    console.log("connection successful");
 }).catch((err) => {
 	console.log(err)
     });
